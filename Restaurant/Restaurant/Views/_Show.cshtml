@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+   
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/style/StyleSheet.css" rel="stylesheet" />
+    <script src="~/jquery/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+<div>
+    <div id="check">
+        @{Html.RenderAction("Index","Home");}
+    </div>
+    <div id="position">
+        <img id="img1" class="img_icon" src="~/Images/imeges_icon/left.png"/>
+        <img id="img2" class="img_icon" src="~/Images/imeges_icon/right.png"/>
+        @{Html.RenderAction("Index", "Navigation");}
+    </div>
+    <div class="global">
+        @RenderBody()
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="~/bootstrap/js/bootstrap.min.js"></script>
+<script src="~/jquery/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+﻿body {
+}
+.div_form {
+    border: 2px solid #2f3bb9;
+    border-radius: 10px;
+    padding: 20px;
+}
+.div_img_admin {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border: 2px solid #2f3bb9;
+}
+.div_img_admin> img {
+    width: 100%;
+}
+.button_admin {
+    margin-top: 20px;
+    background-color: #2f3bb9;
+    padding: 5px 43px;
+    color: white;
+    border: 2px solid #2f3bb9 !important;
+    transition: 0.5s;
+}
+.button_admin:hover {
+    background-color: white;
+    color: #2f3bb9;
+}
+.div_admin_button {
+    text-align: center;
+}
+.ad_h2 {
+    text-align: center;
+}
+.div_top {
+    width: 100%;
+    background-color: #2f3bb9;
+}
+.div_text_top {
+    padding: 19px;
+    font-size: 18px;
+    color: white;
+}
+.div_form>.a_cabinet {
+    text-decoration: none;
+    color: white;
+}
+.a_cabinet {
+    display: block;
+    width: 150px;
+    background-color: #2f3bb9;
+    border: 2px solid #2f3bb9;
+    padding: 6px;
+    text-align: center;
+    border-radius: 5px;
+    transition: 0.5s;
+    margin: 30px auto 20px;
+    color: white;
+}
+.a_cabinet:hover {
+    background-color: white;
+    color: #2f3bb9;
+}
+td>.a_Ajax {
+    text-decoration: none;
+}
+.a_Ajax {
+    display: block;
+    width: 87px;
+    margin: 0 auto;
+    padding: 2px 8px;
+    font-size: 12px;
+    color: #2f3bb9;
+    border: 1px solid #2f3bb9;
+    background-color: white;
+    text-align: center;
+    transition: 0.5s;
+}
+.a_Ajax:hover {
+    background-color: #2f3bb9;
+    color: white;
+}
+div > .ajax_check,
+.div_a >a{
+    text-decoration: none;
+    color: white;
+}
+.ajax_check,
+.a_menu {
+    display: block;
+    width: 136px;
+    margin: 10px auto;
+    background-color: #2f3bb9;
+    border: 2px solid #2f3bb9;
+    text-align: center;
+    padding: 3px 5px;
+    font-size: 15px;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+.ajax_check:hover,
+.a_menu:hover {
+    background-color: white;
+    color: #2f3bb9;
+}
+.div_add> a {
+    text-decoration: none;
+    color: white;
+}
+.div_button>.a_cabinet {
+    outline: none;
+}
+.form-group {
+    margin: 10px 0 5px;
+}
+.form-control {
+    border-color: gray !important;
+}
+.add_button {
+    display: block;
+    width: 150px;
+    background-color: #2f3bb9;
+    border: 2px solid #2f3bb9;
+    padding: 6px;
+    text-align: center;
+    border-radius: 5px;
+    transition: 0.5s;
+    color: white;
+    outline: none;
+}
+.add_button:hover {
+    background-color: white;
+    color: #2f3bb9;
+}
+#Error {
+    display: none;
+}
+.pos {
+    width: 171px;
+}
+.sort {
+    margin: 0;
+}

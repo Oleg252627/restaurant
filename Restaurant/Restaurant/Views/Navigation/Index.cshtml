@@ -1,0 +1,14 @@
+﻿@model List<string>
+
+
+<div class="div_link top">
+    @Html.ActionLink("Главная", "ListMenu", "Home",null,new{@class=ViewBag.pos==null?"selected":null})
+</div>
+
+@foreach (string link in Model)
+{
+    <div class="div_link">
+        @Html.RouteLink(link,new{controller="Home",action="ListMenu",position=link,pages=1}, new{@class=link==ViewBag.pos? "selected" : null})
+    </div>
+}
+

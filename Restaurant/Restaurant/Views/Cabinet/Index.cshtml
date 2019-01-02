@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Admin.cshtml";
+}
+<h2 class="ad_h2"> Кабинет администрации</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-2 col-md-4 ">
+            <div class="div_form">
+                <div class="div_img_admin">
+                    <img src="~/Images/imeges_icon/check.png" />
+                </div>
+                <h3 class="ad_h2">Просмотр чеков</h3>
+                @Html.ActionLink("Войти","Tabel_Check",null,new{@class="a_cabinet"})
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="div_form">
+                <div class="div_img_admin">
+                    <img src="~/Images/imeges_icon/food.png" />
+                </div>
+                <h3 class="ad_h2">Просмотр меню</h3>
+                @Html.ActionLink("Войти", "Index","Menu", null, new { @class = "a_cabinet" })
+            </div>
+        </div>
+    </div>
+</div>
+

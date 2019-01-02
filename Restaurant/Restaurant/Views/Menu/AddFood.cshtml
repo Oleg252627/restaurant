@@ -1,0 +1,93 @@
+﻿@model Restaurant.Models.ModelFood
+
+@{
+    ViewBag.Title = "AddFood";
+    Layout = "~/Views/_Admin.cshtml";
+}
+
+<h2 class="ad_h2">Новое блюдо</h2>
+
+@using (Html.BeginForm("AddFood","Menu",FormMethod.Post,new{enctype="multipart/form-data",onsubmit= "return jQueryPost(this)" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="container">
+        <div class="row">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="col-sm-7 col-md-7">
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Prise, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.EditorFor(model => model.Prise, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Prise, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Position, htmlAttributes: new { @class = "control-label col-md-3" })
+                        <div class="col-md-9">
+                            @Html.DropDownListFor(model => model.Position, (IEnumerable<SelectListItem>)ViewBag.items, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Position, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-sm-5 col-md-5">
+                <div class="row">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.img, htmlAttributes: new { @class = "control-label col-md-12" })
+                        <div class="col-md-12">
+                            <img src="@Url.Content(Model.img)" style="margin: 10px; width: 150px; height: 150px;" id="imagePreview"/>
+                            <input type="file" name="ReternImg" value="Добавить картинку" accept="image/jpeg, image/png" onchange="ShowImagePreview(this,document.getElementById('imagePreview'))"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-sm-7 col-md-7">
+                <div class="row">
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <input type="submit" value="Добавить" class="btn add_button" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <div class="div_a">
+                    @Html.ActionLink("Выйти в меню", "Index", null, new {@class = "a_menu"})
+                </div>
+            </div>
+        
+        </div>
+    </div>
+}

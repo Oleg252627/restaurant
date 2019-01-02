@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RestaurantModelStoreContainer" CdmEntityContainer="RestaurantEnt">
+    <EntitySetMapping Name="Admin">
+      <EntityTypeMapping TypeName="RestaurantModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Passvord" ColumnName="Passvord" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Check_All">
+      <EntityTypeMapping TypeName="RestaurantModel.Check_All">
+        <MappingFragment StoreEntitySet="Check_All">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Id_Checks" ColumnName="Id_Checks" />
+          <ScalarProperty Name="Id_Menu" ColumnName="Id_Menu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Checks">
+      <EntityTypeMapping TypeName="RestaurantModel.Checks">
+        <MappingFragment StoreEntitySet="Checks">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date_of_check" ColumnName="Date_of_check" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Prase" ColumnName="Prase" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu">
+      <EntityTypeMapping TypeName="RestaurantModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="id_Position" ColumnName="id_Position" />
+          <ScalarProperty Name="Name_food" ColumnName="Name_food" />
+          <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+          <ScalarProperty Name="Prise" ColumnName="Prise" />
+          <ScalarProperty Name="Img" ColumnName="Img" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Position">
+      <EntityTypeMapping TypeName="RestaurantModel.Position">
+        <MappingFragment StoreEntitySet="Position">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name_Posinion" ColumnName="Name_Posinion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,261 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RestaurantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Passvord" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Check_All">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Checks" Type="int" Nullable="false" />
+          <Property Name="Name_food" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Prise" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Checks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date_of_check" Type="date" Nullable="false" />
+          <Property Name="Time" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Prase" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_Position" Type="int" Nullable="false" />
+          <Property Name="Name_food" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Descriptions" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Prise" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="Img" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_Posinion" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Check_All__Id_Ch__3E52440B">
+          <End Role="Checks" Type="Self.Checks" Multiplicity="1" />
+          <End Role="Check_All" Type="Self.Check_All" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Checks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Check_All">
+              <PropertyRef Name="Id_Checks" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__id_Positio__398D8EEE">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="id_Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RestaurantModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Check_All" EntityType="Self.Check_All" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Checks" EntityType="Self.Checks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Check_All__Id_Ch__3E52440B" Association="Self.FK__Check_All__Id_Ch__3E52440B">
+            <End Role="Checks" EntitySet="Checks" />
+            <End Role="Check_All" EntitySet="Check_All" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__id_Positio__398D8EEE" Association="Self.FK__Menu__id_Positio__398D8EEE">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RestaurantModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passvord" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Check_All">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Checks" Type="Int32" Nullable="false" />
+          <Property Name="Name_food" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prise" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Checks" Relationship="Self.FK__Check_All__Id_Ch__3E52440B" FromRole="Check_All" ToRole="Checks" />
+        </EntityType>
+        <EntityType Name="Checks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date_of_check" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Time" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prase" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <NavigationProperty Name="Check_All" Relationship="Self.FK__Check_All__Id_Ch__3E52440B" FromRole="Checks" ToRole="Check_All" />
+        </EntityType>
+        <EntityType Name="Menu">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_Position" Type="Int32" Nullable="false" />
+          <Property Name="Name_food" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Descriptions" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prise" Type="Decimal" Precision="16" Scale="2" Nullable="false" />
+          <Property Name="Img" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Position" Relationship="Self.FK__Menu__id_Positio__398D8EEE" FromRole="Menu" ToRole="Position" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_Posinion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Menu" Relationship="Self.FK__Menu__id_Positio__398D8EEE" FromRole="Position" ToRole="Menu" />
+        </EntityType>
+        <Association Name="FK__Check_All__Id_Ch__3E52440B">
+          <End Role="Checks" Type="Self.Checks" Multiplicity="1" />
+          <End Role="Check_All" Type="Self.Check_All" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Checks">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Check_All">
+              <PropertyRef Name="Id_Checks" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Menu__id_Positio__398D8EEE">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Menu">
+              <PropertyRef Name="id_Position" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RestaurantEnt" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admin" EntityType="Self.Admin" />
+          <EntitySet Name="Check_All" EntityType="Self.Check_All" />
+          <EntitySet Name="Checks" EntityType="Self.Checks" />
+          <EntitySet Name="Menu" EntityType="Self.Menu" />
+          <EntitySet Name="Position" EntityType="Self.Position" />
+          <AssociationSet Name="FK__Check_All__Id_Ch__3E52440B" Association="Self.FK__Check_All__Id_Ch__3E52440B">
+            <End Role="Checks" EntitySet="Checks" />
+            <End Role="Check_All" EntitySet="Check_All" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Menu__id_Positio__398D8EEE" Association="Self.FK__Menu__id_Positio__398D8EEE">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Menu" EntitySet="Menu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RestaurantModelStoreContainer" CdmEntityContainer="RestaurantEnt">
+          <EntitySetMapping Name="Admin">
+            <EntityTypeMapping TypeName="RestaurantModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Passvord" ColumnName="Passvord" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Check_All">
+            <EntityTypeMapping TypeName="RestaurantModel.Check_All">
+              <MappingFragment StoreEntitySet="Check_All">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Id_Checks" ColumnName="Id_Checks" />
+                <ScalarProperty Name="Name_food" ColumnName="Name_food" />
+                <ScalarProperty Name="Prise" ColumnName="Prise" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Checks">
+            <EntityTypeMapping TypeName="RestaurantModel.Checks">
+              <MappingFragment StoreEntitySet="Checks">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date_of_check" ColumnName="Date_of_check" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Prase" ColumnName="Prase" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Menu">
+            <EntityTypeMapping TypeName="RestaurantModel.Menu">
+              <MappingFragment StoreEntitySet="Menu">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="id_Position" ColumnName="id_Position" />
+                <ScalarProperty Name="Name_food" ColumnName="Name_food" />
+                <ScalarProperty Name="Descriptions" ColumnName="Descriptions" />
+                <ScalarProperty Name="Prise" ColumnName="Prise" />
+                <ScalarProperty Name="Img" ColumnName="Img" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Position">
+            <EntityTypeMapping TypeName="RestaurantModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name_Posinion" ColumnName="Name_Posinion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

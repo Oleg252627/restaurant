@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Restaurant.Models.ModelPosition>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Admin.cshtml";
+}
+
+<h2 class="ad_h2">Список категорий</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-md-8 div_add">
+            @Ajax.ActionLink("Добавить позицию","AddPosition",null,new AjaxOptions
+            {
+                HttpMethod = "GET",
+                UpdateTargetId = "tab_category",
+                InsertionMode = InsertionMode.Replace
+            },new { @class = "a_cabinet" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 col-md-8">
+            <div id="tab_category">
+                <table class="table table-bordered table-striped table-condensed">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Position)
+                        </th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Position)
+                            </td>
+                            <td>
+                                @Ajax.ActionLink("Изменить", "Edit", new {@id = item.Id}, new AjaxOptions
+                                {
+                                    HttpMethod = "GET",
+                                    UpdateTargetId = "tab_category",
+                                    InsertionMode = InsertionMode.Replace
+                                }, new {@class = "a_Ajax"})
+                            </td>
+                            <td>
+                                @Ajax.ActionLink("Удалить", "Delete", new { @id = item.Id }, new AjaxOptions
+                           {
+                               HttpMethod = "GET",
+                               UpdateTargetId = "tab_category",
+                               InsertionMode = InsertionMode.Replace
+                           },new { @class = "a_Ajax" })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="col-md-6">
+                <div class="div_a">
+                    @Html.ActionLink("Выйти в меню", "Index", "Menu", null, new {@class = "a_menu pos"})
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="div_a">
+                    @Html.ActionLink("Таблица категорий", "Index", "Position", null, new {@class = "a_menu pos"})
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

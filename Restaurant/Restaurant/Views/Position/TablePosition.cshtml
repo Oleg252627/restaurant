@@ -1,0 +1,37 @@
+﻿@model IEnumerable<Restaurant.Models.ModelPosition>
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Position)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Ajax.ActionLink("Изменить", "Edit", new {@id = item.Id}, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "tab_category",
+                    InsertionMode = InsertionMode.Replace
+                }, new {@class = "a_Ajax"})
+            </td>
+            <td>
+                @Ajax.ActionLink("Удалить", "Delete", new { @id = item.Id }, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "tab_category",
+                    InsertionMode = InsertionMode.Replace
+                },new { @class = "a_Ajax" })
+            </td>
+        </tr>
+    }
+
+</table>

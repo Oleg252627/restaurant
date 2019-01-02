@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RestaurantModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Passvord" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Check_All">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id_Checks" Type="int" Nullable="false" />
+    <Property Name="Id_Menu" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Checks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date_of_check" Type="date" Nullable="false" />
+    <Property Name="Time" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Prase" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_Position" Type="int" Nullable="false" />
+    <Property Name="Name_food" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Descriptions" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Prise" Type="decimal" Precision="16" Scale="2" Nullable="false" />
+    <Property Name="Img" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name_Posinion" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Check_All__Id_Ch__3E52440B">
+    <End Role="Checks" Type="Self.Checks" Multiplicity="1" />
+    <End Role="Check_All" Type="Self.Check_All" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Checks">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Check_All">
+        <PropertyRef Name="Id_Checks" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Check_All__Id_Me__3F466844">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="1" />
+    <End Role="Check_All" Type="Self.Check_All" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Check_All">
+        <PropertyRef Name="Id_Menu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Menu__id_Positio__398D8EEE">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Menu" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="id_Position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RestaurantModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Check_All" EntityType="Self.Check_All" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Checks" EntityType="Self.Checks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Check_All__Id_Ch__3E52440B" Association="Self.FK__Check_All__Id_Ch__3E52440B">
+      <End Role="Checks" EntitySet="Checks" />
+      <End Role="Check_All" EntitySet="Check_All" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Check_All__Id_Me__3F466844" Association="Self.FK__Check_All__Id_Me__3F466844">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="Check_All" EntitySet="Check_All" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Menu__id_Positio__398D8EEE" Association="Self.FK__Menu__id_Positio__398D8EEE">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

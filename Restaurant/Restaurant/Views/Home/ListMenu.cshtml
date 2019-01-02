@@ -1,0 +1,22 @@
+﻿@using Restaurant.Models
+@model Restaurant.Models.Model_List_Peges
+
+@{
+    ViewBag.Title = "ListMenu";
+    Layout = "~/Views/_Show.cshtml";
+}
+
+<div id="searchresult"></div>
+    <div class="container">
+        @foreach (ModelMenu VAR in Model.menu.ToList())
+        {
+            Html.RenderPartial("Order", VAR);
+        }
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pages">
+                    @Html.PagesLinks(Model.pagingInfo, x => Url.Action("ListMenu", new { pages = x, position = Model.pagingInfo.Position }))
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,46 @@
+﻿@model Restaurant.Models.Model_Admin
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Admin.cshtml";
+}
+
+<h2 class="ad_h2"> Форма входа </h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4 div_form">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="div_img_admin">
+                            <img src="~/Images/imeges_icon/advin.png" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.LabelFor(z=>z.Login,new {@class="control-label"})
+                    </div>
+                    <div class="col-md-12">
+                        @Html.EditorFor(x => x.Login, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Login, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="col-md-12">
+                        @Html.LabelFor(z => z.Password, new { @class = "control-label" })
+                    </div>
+                    <div class="col-md-12">
+                        @Html.EditorFor(x => x.Password, new { htmlAttributes = new{@class="form-control"}})
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-offset-3 col-md-6 div_admin_button">
+                        <input type="submit" value="Войти" class="btn btn-default button_admin" />
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+

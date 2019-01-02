@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Restaurant.Models.ModelMore>
+
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(z=>z.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(z => z.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(z => z.Prise)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(z=>item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(z => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(z => item.Prise) грн.
+            </td>
+        </tr>
+    }
+
+</table>
+

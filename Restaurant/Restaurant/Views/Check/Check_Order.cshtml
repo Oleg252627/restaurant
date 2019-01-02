@@ -1,0 +1,43 @@
+﻿@model Restaurant.Models.Conteiner_Check
+@{
+    ViewBag.Title = "Check_Order";
+    Layout = "~/Views/_Show.cshtml";
+}
+
+
+@if (Model.Check_orders.Count != 0)
+{
+    <div class="container">
+        <h2 class="cl_h2">Ваш заказ</h2>
+        @foreach (var Order in Model.Check_orders)
+        {
+
+            <div class="row div_group">
+                <div class="col-sm-offset-1 col-sm-4 col-md-offset-2 col-md-4 order_zakaz">
+                    @Order.Name
+                </div>
+                <div class="col-sm-3 col-md-3 order_zakaz">
+                    <span>@Order.Prise грн.</span>
+                </div>
+                <div class="col-sm-3 col-md-2 link">
+                    @Html.ActionLink("Удалить", "Delete", new {poz = @Order.Id}, new {@class = "order_delete"})
+                </div>
+            </div>
+
+        }
+        <div class="row div_summ">
+            <div class="col-md-offset-1 col-md-9">
+                <div class="col-md-5 chiecl_div_sum">
+                    Сумма заказа:<span>@Model.Summ грн.</span>
+                </div>
+                <div class="col-md-4 menu">
+                    <a class="link_menu" href="@Model.ReturnUrl">Назад в меню</a>
+                </div>
+                <div class="col-md-3 zakaz">
+                    @Html.ActionLink("Заказать", "Index", null, new {@class = "link_zakaz"})
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

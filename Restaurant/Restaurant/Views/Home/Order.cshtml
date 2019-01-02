@@ -1,0 +1,28 @@
+﻿@model Restaurant.Models.ModelMenu
+
+<div class="row row_style">
+    <div class="col-md-offset-1 col-md-11  div_vnutri">
+        <div class=" col-md-2">
+            <div class="div_img">
+                <img src="~/@Model.Img" />
+            </div>
+        </div>
+        <div class="col-md-8 description">
+            <div class="name">@Model.Name</div>
+            <p>@Model.Description</p>
+        </div>
+        <div class="col-md-2">
+            <div class="prise">@Model.Prise.ToString() грн.</div>
+            <div class="sabmit_order">
+                @using (Ajax.BeginForm("Index", "Home",new AjaxOptions{HttpMethod = "GET",UpdateTargetId = "searchresult",InsertionMode = InsertionMode.Replace}))
+                {
+                    @Html.HiddenFor(x => x.Id)
+                    @Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+                    <input class="submit_order" type="submit" value="Добавить в заказ" />
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

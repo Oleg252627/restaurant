@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Restaurant.Models.Model_Check>
+
+
+<table class="table table-bordered table-striped table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(z=>z.Data_of_check)
+        </th>
+        <th>
+            @Html.DisplayNameFor(z=>z.Time)
+                            
+        </th>
+        <th>
+            @Html.DisplayNameFor(z=>z.Prise)
+        </th>
+        <th>
+                            
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <span>@item.Data_of_check.ToString("d")</span>
+            </td>
+            <td>
+                @Html.DisplayFor(model=>item.Time)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prise) грн.
+            </td>
+            <td>
+                @Ajax.ActionLink("Подробнее", "More", new {@id = item.Id}, new AjaxOptions
+                {
+                    HttpMethod = "GET",
+                    UpdateTargetId = "more",
+                    InsertionMode = InsertionMode.Replace
+                }, new {@class = "a_Ajax"})
+            </td>
+        </tr>
+    }
+
+</table>
+

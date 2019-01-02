@@ -1,0 +1,15 @@
+﻿@model Restaurant.Models.Conteiner_Check
+
+<div>
+    <div class="container">
+        <div class="row nav_top">
+            <div class="col-md-offset-5 col-md-4 suum_check">
+                Сумма заказа: <span>@Model.Summ грн.</span>
+            </div>
+            <div class="col-md-3 div_check">
+                @Html.ActionLink("Оформить заказ", "Check_Order","Check", null, new { @class = "all_check" })
+            </div>
+        </div>
+    </div>
+</div>
+

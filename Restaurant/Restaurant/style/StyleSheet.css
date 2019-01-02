@@ -1,0 +1,231 @@
+﻿body {
+}
+
+.div_img {
+    width: 200px;
+}
+.div_img>img {
+    display: block;
+    width: 70%;
+    height: auto;
+}
+.row_style {
+    margin: 15px 5px;
+}
+.div_vnutri {
+    padding: 15px 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+.description {
+    margin-top: 1%;
+}
+.div_vnutri:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,0,0, .5);
+    transition: 0.5s;
+    z-index: 2000;
+}
+.prise {
+    margin: 38px auto 20px;
+    width: 150px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.pages {
+       text-align: right; 
+    border-top: 2px solid silver; 
+    padding: 10px;  
+    margin-top: 1em;
+    z-index: 3000;
+} 
+.pages> a {
+    font-size: 1.2em;    
+    color: brown;  
+    text-decoration: none;   
+    padding: 0 .4em 0 .4em;
+}
+    .pages > a:hover {
+        background-color: #efae6b;
+    }
+    .pages > .selected {
+        background-color: #f37e06;
+        color: White;
+    } 
+#position {
+    position: fixed;
+    width: 70px;
+    height: 100vh;
+    left: 0;
+    top: 52px;
+    background-color: brown;
+    transition: 0.3s;
+    z-index: 4000;
+}
+.img_icon {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 13px;
+    width: 40px;
+}
+.div_link.top {
+    margin: 40px 0 0;
+}
+.div_link {
+    display: none;
+}
+.div_link > .selected {
+    color: #f37e06;
+}
+    .div_link > a {
+        display: block;
+        text-decoration: none;
+        padding: 10px 79px;
+        font-size: 18px;
+        color: white;
+        transition: 0.7s;
+    }
+.div_link > a:hover {
+    color: #f37e06;
+}
+#check, #searchresult {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: brown;
+    transition: 0.5s;
+    z-index: 4000;
+}
+.nav_top {
+    margin: 10px;
+}
+.all_check {
+    text-decoration: none;
+    display: block;
+    width: 160px;
+    text-align: center;
+    float: right;
+    padding: 5px 20px;
+    font-size: 15px;
+    transition: 0.5s;
+    color: #f37e06;
+    border: 1px solid #f37e06;
+}
+.all_check:hover {
+    background-color: #f37e06;
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+}
+.suum_check {
+    font-size: 19px;
+    text-align: right;
+    color: #f37e06;
+    margin-top: 3px;
+}
+    .suum_check > span {
+        color: white;
+    }
+
+.global {
+    margin: 55px 0 20px;
+}
+.name {
+    font-size: 18px;
+    font-weight: bold;
+    color: brown;
+}
+.submit_order {
+    border-style: none;
+    padding: 4px 19px;
+    background-color: white;
+    border: 1px solid brown;
+    transition: 0.5s;
+    color: brown;
+    outline: none;
+    font-size: 13px;
+}
+.submit_order:hover {
+    background-color: brown;
+    color: white;
+}
+.div_group {
+    border-bottom: 1px solid #f37e06;
+}
+.order_zakaz {
+    padding: 6px 16px;
+    font-size: 18px;
+    color: brown;
+}
+    .order_zakaz>span {
+        color: black;
+    }
+    .order_delete {
+        display: block;
+        padding: 2px 12px;
+        border: 1px solid #f37e06;
+        width: 120px;
+        text-align: center;
+        font-size: 14px;
+        margin: 5px;
+        transition: 0.5s;
+    }
+.order_delete:hover {
+    background-color: #f37e06;
+    color: white;
+}
+.link > a {
+    text-decoration: none;
+    color: #f37e06;
+}
+.div_check>a {
+    text-decoration: none;
+    color: #f37e06;
+}
+.div_summ {
+    margin: 20px 0;
+}
+.chiecl_div_sum {
+    color: #f37e06;
+    font-size: 21px;
+    margin: 7px 0;
+}
+.chiecl_div_sum>span {
+    color: black;
+}
+.menu > a,
+.zakaz >a{
+    text-decoration: none;
+    padding: 6px 12px;
+    display: block;
+    width: 175px;
+    font-size: 16px;
+    text-align: center;
+    background-color: brown;
+    color: white;
+    transition: 0.5s;
+    margin: 4px 0;
+}
+    .menu > a:hover,
+    .zakaz> a:hover{
+        background-color: #f37e06;
+    }
+.cl_h2 {
+    text-align: center;
+}
+.div_h1 {
+    width: 310px;
+    margin: 100px auto 10px;
+    text-align: center;
+    font-size: 37px;
+    font-weight: 600;
+}
+.div_h2 {
+    width: 310px;
+    margin: 10px auto;
+    text-align: center;
+    font-size: 27px;
+}
